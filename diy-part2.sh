@@ -12,17 +12,13 @@
 
 # Modify default IP
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
-# 替换jerrykuku/luci-theme-argon
-# 修改默认主题把argon换成你要的,三个都要改
-#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git ./package/lean/luci-theme-argon-18.06
-#sed -i 's/Bootstrap/argon-18.06/g' feeds/luci/collections/luci/Makefile
-#sed -i 's/bootstrap/argon-18.06/g' feeds/luci/collections/luci/Makefile
-#sed -i 's/# CONFIG_PACKAGE_luci-theme-argon-18.06 is not set/CONFIG_PACKAGE_luci-theme-argon-18.06=y/g' .config
 
+# 定制主题
 git clone https://github.com/rosywrt/luci-theme-rosy.git ./package/lean/luci-theme-rosy
+
+# 修改为默认主题
 sed -i 's/Bootstrap/rosy/g' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/rosy/g' feeds/luci/collections/luci/Makefile
-修改主题
 sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-rosy=y/g' .config
 
 # 取消默认主题,自己看着办
