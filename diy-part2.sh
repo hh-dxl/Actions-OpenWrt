@@ -19,10 +19,11 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 #sed -i 's/bootstrap/argon-18.06/g' feeds/luci/collections/luci/Makefile
 #sed -i 's/# CONFIG_PACKAGE_luci-theme-argon-18.06 is not set/CONFIG_PACKAGE_luci-theme-argon-18.06=y/g' .config
 
-git clone https://github.com/rosywrt/luci-theme-rosy.git ./package/lean/
+git clone https://github.com/rosywrt/luci-theme-rosy.git ./package/lean/luci-theme-rosy
 sed -i 's/Bootstrap/rosy/g' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/rosy/g' feeds/luci/collections/luci/Makefile
-#sed -i 's/# CONFIG_PACKAGE_luci-theme-rosy is not set/CONFIG_PACKAGE_luci-theme-rosy=y/g' .config
+修改主题
+sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/CONFIG_PACKAGE_luci-theme-rosy=y/g' .config
 
 # 取消默认主题,自己看着办
 #sed -i 's/CONFIG_PACKAGE_luci-theme-bootstrap=y/#CONFIG_PACKAGE_luci-theme-bootstrap is not set/g' .config
