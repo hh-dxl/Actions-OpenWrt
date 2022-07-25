@@ -15,7 +15,7 @@ sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
 
 # 定制主题
 git clone https://github.com/rosywrt/luci-theme-rosy.git ./package/lean/luci-theme-rosy
-
+#git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  ./package/lean/luci-theme-argon2
 # 修改为默认主题
 sed -i 's/Bootstrap/rosy/g' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/rosy/g' feeds/luci/collections/luci/Makefile
