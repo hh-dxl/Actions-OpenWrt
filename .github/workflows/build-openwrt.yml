@@ -18,12 +18,33 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
+      pppoe_username:
+        description: 'pppoe_username'
+        required: false
+        default: '#pppoe_username='
+      pppoe_password:
+        description: 'pppoe_password'
+        required: false
+        default: '#pppoe_password='
+      root_password:
+        description: 'root_password'
+        required: false
+        default: '#root_password='
+      lan_ip_address:
+        description: 'lan_ip_address'
+        required: false
+        default: '#lan_ip_address='
+      firewall_port:
+        description: 'firewall_port'
+        required: false
+        default: '#firewall_port='
 
 env:
   REPO_URL: https://github.com/openwrt/openwrt
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
+  uci_defaults: 99_diy
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: false
@@ -78,6 +99,8 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        [ -e $uci_defaults] && mv $uci_defaults openwrt/package/base-files/files/etc/uci-defaults/99_diy
+        sed -e "2a\\$github.event.inputs.firewall_port" -e "2a\\$github.event.inputs.pppoe_password" -e "2a\\$github.event.inputs.pppoe_username" -e "2a\\$github.event.inputs.lan_ip_address" -e "2a\\$github.event.inputs.root_password" openwrt/package/base-files/files/etc/uci-defaults/99_diy 
         chmod +x $DIY_P2_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
