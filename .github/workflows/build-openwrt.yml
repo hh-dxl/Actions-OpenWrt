@@ -79,7 +79,6 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
-        wget https://de.hhdxl.cf/config/99_diy -O openwrt/package/base-files/files/etc/uci-defaults/99_diy
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
