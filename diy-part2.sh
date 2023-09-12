@@ -18,7 +18,8 @@
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  ./package/lean/luci-theme-argon2
 
 git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/luci-theme-argon
-git clone https://github.com/lisaac/luci-app-diskman.git  ./package/luci-app-diskman
+git clone https://github.com/mchome/openwrt-vlmcsd.git ./package/vlmcsd
+#git clone https://github.com/lisaac/luci-app-diskman.git  ./package/luci-app-diskman
 # 修改为默认主题
 sed -i 's/Bootstrap/argon/g' feeds/luci/collections/luci/Makefile
 sed -i 's/bootstrap/argon/g' feeds/luci/collections/luci/Makefile
