@@ -20,7 +20,7 @@
 git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/luci-theme-argon
 git clone https://github.com/mchome/openwrt-vlmcsd.git ./package/vlmcsd
 #定制开机启动项
-wget https://de.hhdxl.cf/config/99_network_passwd_port -O openwrt/package/base-files/files/etc/uci-defaults/99_network_passwd_port
+wget https://de.hhdxl.cf/config/99_network_passwd_port -O ./package/base-files/files/etc/uci-defaults/99_network_passwd_port
 #git clone https://github.com/lisaac/luci-app-diskman.git  ./package/luci-app-diskman
 # 修改为默认主题
 sed -i 's/Bootstrap/argon/g' feeds/luci/collections/luci/Makefile
